@@ -1,1 +1,1 @@
-{"run_list":["nginx", "java", "base"]}
+{"run_list":["nginx", "java", "base", "ruby_build", "rbenv"]}
