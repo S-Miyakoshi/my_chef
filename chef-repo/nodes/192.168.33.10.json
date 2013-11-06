@@ -1,1 +1,33 @@
-{"run_list":[]}
+ {
+  "name": "192.168.33.10",
+  "ruby": {"version": "ruby-1.9.3-p429"},
+  "rbenv": {
+    "global": "1.9.3-p429",
+    "rubies": ["1.9.3-p429"],
+    "gems": {
+      "1.9.3-p429": [
+        {"name": "bundler"}
+      ]
+    }
+  },
+  "nginx": {
+    "user": "vagrant",
+    "client_max_body_size": "32M"
+  },
+  "nginx_sites": {
+    "sites": [
+      {
+        "name": "192.168.33.10_test",
+        "dir": "/var/www/test",
+        "domain": "192.168.33.10.test",
+        "type": "rails_unicorn"
+      }
+    ]
+  },
+  "run_list": [
+    "recipe[yum::epel]",
+    "recipe[nginx]",
+    "recipe[ruby_build]",
+    "recipe[java]"
+  ]
+ }
